@@ -1,0 +1,51 @@
+<%-include('./header')%>
+
+
+<h1>Détails des lieux</h1>
+<img src="/<%=Place.pathImage%>" alt="image de lieu" />
+<div id='like-ctn'>
+<p>Like:<span class="like-place"><%=Like.length%></span></p>
+</div>
+
+<P><STRONG>Name:</STRONG><%=Place.name%></P>
+<P><strong>Date:</strong><%=Place.dates%></P>
+<P><strong>Description:</strong><%=Place.description%></P>
+
+
+
+<div id="place-id"><%=Place._id%></div>
+<% if(user===undefined){%>
+    <% }else{ %>
+
+    <form id="send-id">
+    <h2><label for="comt">Leave a comment:</label></h2>
+    <input type="text" name="comt" id="comt"></p>
+    <p><input type="submit" value="Send"  ></p>
+
+</form>
+<%}%>
+<% if(user===undefined){%>
+<%}else{%>
+<div id="place-like">
+    <form id="form-like" >
+    <input type="hidden" id="like" name="like" value="<%=Like.length%>">
+    <button type="submit" class="btn-like" >Like</button>
+    </form>
+</div>
+<%}%>
+
+
+
+<div id="comment-ctn">
+    <% for( const comment of Comment){%>
+        <div class="comt-place">
+        <p><strong>Comment:</strong><%=comment.comment%></p>
+        <p><strong>Date:</strong><%=comment.dates%></p>
+        <p><strong>Author:</strong><a href='/users/profil'><%=comment.author%></a></p>
+
+        </div>
+    <%}%>
+</div>
+
+
+<%-include('./footer')%>

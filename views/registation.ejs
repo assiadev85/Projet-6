@@ -1,0 +1,30 @@
+<%-include('./header');%>
+
+<% if(locals.error){ %>
+    <span><%= error %> </span>
+    <% } %>
+<h2>SIGNUP</h2>
+    <form action="/signup" method="POST">
+        <P><label for="firstname" name="firstname">Firstname:</label>
+            <input type='text' name='firstname' required></P>
+        <p><label for="lastname" name='lastname'>Lastname:</label>
+            <input type='text' name='lastname'></p>
+        <P> <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required></P>
+        <P> <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required></P>
+        <P> <label for="passwordC">Confirm password:</label>
+            <input type="password" name="passwordC" id='passwordC' required></P>
+        <P><input type="submit" id="buton"></P>
+
+    </form>
+    <h2>LOGIN</h2>
+    <form action="/login" method='POST'>
+       <P> <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required></P>
+        <P> <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required></P>
+            <P><input type="submit" value="Envoyer" id="buton"></P>
+    </form>
+    
+    <%-include('./footer');%>

@@ -1,0 +1,13 @@
+<%-include('./header');%>
+<% for (var i=0 ; i < User.length; i++){%>
+    <p><strong>Firstname:</strong><%=User[i].firstname%></p>
+    <p><strong>Lastname:</strong><%=User[i].lastname%></p>
+    <p><strong>Email:</strong><%=User[i].email%></p>
+<%}%>
+<h2>Modifier les informations </h2>
+<P> <label for="password">Password:</label>
+    <input type="password" name="password" id="password" required></P>
+<P> <label for="passwordC">Confirm password:</label>
+    <input type="password" name="passwordC" id='passwordC' required></P>
+<P><input type="submit" id="buton"></P>
+<%-include('./footer');%>

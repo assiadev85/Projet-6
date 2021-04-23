@@ -1,0 +1,23 @@
+<%-include('./header');%>
+
+<button><a href="/location">Add a place</a></button>
+
+<div>
+  <input class ='search' type='search'placeholder='search' id='search'>
+  <button class='btn-search' type='submit'> Search</button>
+  
+  </div>
+
+
+<div id="contenair">
+  <% for(var i=0 ;i< Place.length; i++){%>
+    <div id="place" class="place" >
+ <P><strong>Name:</strong><%=Place[i].name%></P> 
+  <P><strong>Description:</strong><%=Place[i].description%></P>
+ <P><strong>Date:</strong> <%=Place[i].dates%></P>
+  <a href="<%=`/details/${Place[i]._id}`%>"><img src=" <%=Place[i].pathImage%>"/></a>
+</div>
+
+  <%}%>
+</div>
+<%-include('./footer');%>
