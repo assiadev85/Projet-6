@@ -5,7 +5,7 @@ const crypto=require('crypto');
 
 //INSCRIPTION//
 router.get('/', function (req, res, next) {
-  res.render('registation')
+  res.render('registation',{title:'Login'})
 });
 router.post('/signup', (req, res, next) => {
       console.log(req.body);

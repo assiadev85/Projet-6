@@ -1,6 +1,7 @@
 <%-include('./header')%>
-
-<h1>List des lieux</h1>
+<main>
+<title><%=title%></title>
+<h2>List of places</h2>
 
 <% for(var i=0 ;i< Place.length; i++){%>
     <P><strong>Name:</strong><%=Place[i].name%></P> 
@@ -10,10 +11,11 @@
 
   <form action="/admin/valid" method="POST">
   <input type="hidden" value="<%=Place[i]._id %>" name="id"/>
-  <input type="submit" value="Valider"/>
+  <input type="submit" value="Validate" class="btn"/>
 
 </form>
 
 <%}%>
+</main>
 
 <%-include('./footer')%>

@@ -1,51 +1,53 @@
 <%-include('./header')%>
 
 
-<h1>Détails des lieux</h1>
-<img src="/<%=Place.pathImage%>" alt="image de lieu" />
+<h2>Détails of places</h2>
+<div class="ctn-img">
+<h2><STRONG>Name:</STRONG><%=Place.name%></h2>
+<img  class ="img-detail" src="/<%=Place.pathImage%>" alt="picture of place" />
 <div id='like-ctn'>
-<p>Like:<span class="like-place"><%=Like.length%></span></p>
+    <p><span class="lik-place" id="like-place" ><%=Like.length%></p>
 </div>
+<% if(user===undefined){%>
+    <%}else{%>
+    <div >
+        <form id="like" >
+            <button type="submit" class="btn-like"><ion-icon  name="heart-outline"></ion-icon></button>
+      
+        </form>
+    </div>
+    <%}%>
+<div>
 
-<P><STRONG>Name:</STRONG><%=Place.name%></P>
-<P><strong>Date:</strong><%=Place.dates%></P>
-<P><strong>Description:</strong><%=Place.description%></P>
-
-
+<P class="p-des"><strong>Description:</strong><%=Place.description%></P>
+<P class="p-date"><strong>Date:</strong><%=Place.dates%></P>
 
 <div id="place-id"><%=Place._id%></div>
 <% if(user===undefined){%>
     <% }else{ %>
 
     <form id="send-id">
-    <h2><label for="comt">Leave a comment:</label></h2>
-    <input type="text" name="comt" id="comt"></p>
-    <p><input type="submit" value="Send"  ></p>
+    <h3><label for="comt">Leave a comment:</label></h3>
+    <textarea name="comt" id="comt" placeholder="your comment"></textarea> </p>
+    <p><input class="comment" type="submit" value="Send"  ></p>
 
 </form>
 <%}%>
-<% if(user===undefined){%>
-<%}else{%>
-<div id="place-like">
-    <form id="form-like" >
-    <input type="hidden" id="like" name="like" value="<%=Like.length%>">
-    <button type="submit" class="btn-like" >Like</button>
-    </form>
-</div>
-<%}%>
-
-
 
 <div id="comment-ctn">
     <% for( const comment of Comment){%>
         <div class="comt-place">
         <p><strong>Comment:</strong><%=comment.comment%></p>
-        <p><strong>Date:</strong><%=comment.dates%></p>
+        <p class="p-date"><strong>Date:</strong><%=comment.dates%></p>
         <p><strong>Author:</strong><a href='/users/profil'><%=comment.author%></a></p>
 
         </div>
+    </div>
     <%}%>
+
 </div>
+</div>
+
 
 
 <%-include('./footer')%>

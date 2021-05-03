@@ -6,7 +6,7 @@ const User = require('../models/userSchema');
      User.find({_id:req.session.user_ID})
      .then((users)=>{
          console.log(users)
-         res.render('profil',{User:users})
+         res.render('profil',{User:users,title:'Profil'})
 
      })
      .catch((error)=>{
@@ -15,6 +15,7 @@ const User = require('../models/userSchema');
     
     
  })
+//  router.get('/profil',)
 
 
 

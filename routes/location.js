@@ -27,7 +27,7 @@ router.post('/addPicture', upload.single('pic'), (req, res, next) => {
         if (error) throw error;
         else {
             console.log(doc);
-            res.status(200).send('ok')
+            res.status(200).redirect('/')
         }
     })
 
@@ -42,7 +42,7 @@ let isAuth = function (req, res, next) {
 }
 //ROUTE GET POUR NEWPLACE
 router.get('/', isAuth, (req, res) => {
-    res.render('newPlace')
+    res.render('newPlace',{title:'newPlace'})
 })
 //LES DETAIL DE NEWPLACE//
 router.get('/details/:id', (req, res, next) => {
@@ -123,22 +123,29 @@ router.post('/details/:id/like', (req, res, next) => {
 
     let placeId = req.params.id
     let userId = req.session.user_ID;
-    let like = req.body.likeVal;
 
     const newLike = new Like({
         newPlace: placeId,
         user: userId,
-        like: like,
+      
     });
     newLike.save((err, doc) => {
         console.log(doc)
 
         if (err) throw err
         else {
-            res.status(200).send({
-                Like: doc
+            Like.find({
+                newPlace:placeId
             })
-            console.log('like ajouter')
+            .then(likes=>{
+                res.status(200).send({
+                    Like:likes.length
+
+                }).catch((error) => {
+                    throw error
+                })
+            
+            }) 
         }
     })
 

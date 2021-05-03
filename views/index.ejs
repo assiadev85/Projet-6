@@ -1,23 +1,28 @@
 <%-include('./header');%>
 
-<button><a href="/location">Add a place</a></button>
+<title><%=title%></title>
+<main>
 
-<div>
-  <input class ='search' type='search'placeholder='search' id='search'>
-  <button class='btn-search' type='submit'> Search</button>
-  
+<div calsse='contenaire'>
+  <div class="search-input">
+    <input class='search' type='search' placeholder='search' id='search'>
+    <!-- <button class='btn-search' type='submit'> Search</button> -->
+
   </div>
 
+  <div id="contenair" class="cnt-place">
+    <% for(var i=0 ;i< Place.length; i++){%>
+    <div id="place" class="place">
+      <div class="content">
+        <P><strong>Name:</strong><%=Place[i].name%></P>
+        <a href="<%=`/location/details/${Place[i]._id}`%>"><img src=" <%=Place[i].pathImage%>" /></a>
+        <P class="p-des"><strong>Description:</strong><%=Place[i].description%></P>
+        <P class="p-date"><strong>Date:</strong> <%=Place[i].dates%></P>
+      </div>
+    </div>
 
-<div id="contenair">
-  <% for(var i=0 ;i< Place.length; i++){%>
-    <div id="place" class="place" >
- <P><strong>Name:</strong><%=Place[i].name%></P> 
-  <P><strong>Description:</strong><%=Place[i].description%></P>
- <P><strong>Date:</strong> <%=Place[i].dates%></P>
-  <a href="<%=`/details/${Place[i]._id}`%>"><img src=" <%=Place[i].pathImage%>"/></a>
+    <%}%>
 </div>
-
-  <%}%>
 </div>
+</main>
 <%-include('./footer');%>

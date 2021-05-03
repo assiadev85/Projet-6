@@ -18,18 +18,18 @@ const isAdmin=function(req,res,next){
         res.redirect('/')
     }
 }
-router.get("/",(req,res,next)=>{
+router.get("/",isAdmin,(req,res,next)=>{
    
     Place.find({isValid:false}).then((newPlace)=>{
         console.log('ok')
-        res.render("listaddmin",{Place:newPlace})
+        res.render("listaddmin",{Place:newPlace ,title:'Admin'})
 
     }).catch((err)=>{
 
     })
     
 })
-router.post("/valid",(req,res,next)=>{
+router.post("/valid",isAdmin,(req,res,next)=>{
     let placeId = req.body.id
     console.log(placeId)
      Place.findOneAndUpdate({_id:placeId},{isValid:true},{new:true})

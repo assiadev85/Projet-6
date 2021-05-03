@@ -6,7 +6,7 @@ const placeSchema = new mongoose.Schema({
     author:{type:mongoose.ObjectId},
     description: {type: String},
     isValid:{type:Boolean,default:false},
-    dates:{type:String,default:Date.now()},
+    dates:{type:Date,default:Date.now()},
     
 })
 const Place  = mongoose.model('Place', placeSchema);

@@ -13,7 +13,7 @@ const { Console } = require('console');
 router.get('/',(req,res,next)=>{
   Place.find({isValid:true}).then((newPlace)=>{
 
- res.render('index',{Place:newPlace})
+ res.render('index',{Place:newPlace,title:'Home'})
  })
  .catch((error)=>{
    throw error

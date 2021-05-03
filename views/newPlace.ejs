@@ -1,14 +1,17 @@
 <%-include('./header')%>
-<h1>Creer un lieu</h1>
+<title><%=title%></title>
+<h2>Add a place</h2>
 <main>
-    <form method="POST" action="addPicture" enctype="multipart/form-data" >
-        <p><label for="name">Nom</label>
+    <form method="POST" action="/location/addPicture" enctype="multipart/form-data"  class="add-pic">
+        <div>
+        <p><label for="name">Name</label>
         <input type="text" name="name" id="name"></p>
         <p><label for="desc">Description</label>
-        <textarea id="desc" name="desc">Votre decription du lieu</textarea> </p>
-        <p><label for="picture">Photo</label>
+        <textarea id="desc" name="desc">your decription</textarea> </p>
+        <p><label for="picture">Picture</label>
         <input type="file" name="pic" id="picture"></p>
-         <input type="submit"value="envoyer" id="place">
+         <input type="submit"value="Send it!" id="place" class="btn">
+        </div>
 
     </form>
 </main>

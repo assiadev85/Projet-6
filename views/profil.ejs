@@ -1,13 +1,28 @@
 <%-include('./header');%>
+<title><%=title%></title>
+<h2>Modify your informations</h2>
 <% for (var i=0 ; i < User.length; i++){%>
-    <p><strong>Firstname:</strong><%=User[i].firstname%></p>
-    <p><strong>Lastname:</strong><%=User[i].lastname%></p>
-    <p><strong>Email:</strong><%=User[i].email%></p>
-<%}%>
-<h2>Modifier les informations </h2>
+
+<div class="profil-form">
+    <P><label>Firstname:</label>
+
+        <input type="text" name="firstnama" value="<%=User[i].firstname%>" /></P>
+    <p><label>Lastname:</label>
+        <input type="text" name="lastname" value="<%=User[i].lastname%>" /></p>
+
+    <p><label>Email:</label>
+        <input type="email" name="email" value="<%=User[i].email%>" /></p>
+    <%}%>
+
+<p><label>Current password</label>
+<input type="password" name="password" id="password" required></P>
+
 <P> <label for="password">Password:</label>
     <input type="password" name="password" id="password" required></P>
-<P> <label for="passwordC">Confirm password:</label>
+
+<P> <label for="passwordC">Confirm the password:</label>
     <input type="password" name="passwordC" id='passwordC' required></P>
-<P><input type="submit" id="buton"></P>
+
+<P><input type="submit" id="buton" value="Send it!" class="btn"></P>
+</div>
 <%-include('./footer');%>
