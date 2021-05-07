@@ -14,7 +14,7 @@ var usersRouter = require('./routes/users');
  var loginRouter=require('./routes/login')
  var locationRouter=require('./routes/location')
 
-mongoose.connect(process.env.MONGODB_URL,
+mongoose.connect(process.env.MONGODB_URI,
 {
   useNewUrlParser: true,
  useUnifiedTopology: true,
@@ -40,7 +40,7 @@ app.use(session({
   secret:'secret',
   resave:false,
   saveUninitialized:false,
-  store: MongoStore.create({mongoUrl:process.env.MONGODB_URL,})
+  store: MongoStore.create({mongoUrl:process.env.MONGODB_URI,})
 }));
 
 app.use('/', indexRouter);
