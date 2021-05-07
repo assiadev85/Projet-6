@@ -44,6 +44,7 @@ h2 {
   color: rgb(46, 43, 43);
   text-align: center;
   margin-top: 50PX;
+  margin-bottom:25PX;
 
 
 }
@@ -140,6 +141,10 @@ color:#fff;
   color: rgb(255, 248, 242);
   font-size: 1.2em;
   text-align: justify;
+}
+.p-admin{
+  margin-bottom:20PX;
+  margin-top: 20PX;
 }
 
 span {
@@ -258,6 +263,20 @@ span {
   text-align: center;
   font-size :0.8em;
   padding-top:30PX;
+
+}
+.p-auther{
+  margin-top:15PX;
+  margin-bottom:15PX;
+}
+.p-comt{
+  margin-top:15PX;
+  margin-bottom:15X;
+}
+.p-dat{
+  font-size:0.8em;
+  margin-top:10PX;
+  margin-bottom: 10PX;
 }
 
 .img-detail {
@@ -300,7 +319,7 @@ textarea {
 
 }
 .ctn-img{
-  width: 60%;
+  width: 35%;
   margin: auto;
 }
 /* FOOTER */

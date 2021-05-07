@@ -18,9 +18,10 @@
     </div>
     <%}%>
 <div>
+    <div class="box_comt">
 
 <P class="p-des"><strong>Description:</strong><%=Place.description%></P>
-<P class="p-date"><strong>Date:</strong><%=Place.dates%></P>
+<P ><strong>Date:</strong><%=Place.dates%></P>
 
 <div id="place-id"><%=Place._id%></div>
 <% if(user===undefined){%>
@@ -37,14 +38,15 @@
 <div id="comment-ctn">
     <% for( const comment of Comment){%>
         <div class="comt-place">
-        <p><strong>Comment:</strong><%=comment.comment%></p>
-        <p class="p-date"><strong>Date:</strong><%=comment.dates%></p>
-        <p><strong>Author:</strong><a href='/users/profil'><%=comment.author%></a></p>
+        <p class="p-comt"><strong>Comment:</strong><%=comment.comment%></p>
+        <p class="P-dat"><strong>Date:</strong><%=comment.dates%></p>
+        <p class="P-auther"><strong>Author:</strong><a href='/users/profil'><%=comment.author%></a></p>
 
         </div>
     </div>
     <%}%>
 
+</div>
 </div>
 </div>
 

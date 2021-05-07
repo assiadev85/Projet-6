@@ -6,6 +6,7 @@ var logger = require('morgan');
 const mongoose=require('mongoose');
 const session=require('express-session');
 const MongoStore =require('connect-mongo')
+require('dotenv').config({path: __dirname + '/.env'})
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -13,7 +14,7 @@ var usersRouter = require('./routes/users');
  var loginRouter=require('./routes/login')
  var locationRouter=require('./routes/location')
 
-mongoose.connect('mongodb://localhost/projet6',
+mongoose.connect(process.env.MONGODB_URL,
 {
   useNewUrlParser: true,
  useUnifiedTopology: true,
@@ -39,7 +40,7 @@ app.use(session({
   secret:'secret',
   resave:false,
   saveUninitialized:false,
-  store: MongoStore.create({mongoUrl: 'mongodb://127.0.0.1:27017/projet6'})
+  store: MongoStore.create({mongoUrl:process.env.MONGODB_URL,})
 }));
 
 app.use('/', indexRouter);

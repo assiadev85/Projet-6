@@ -13,9 +13,11 @@ res.render('upload');
 });
 
 router.post('/addPicture', upload.single('pic'), (req, res, next) => {
-    console.log(req.file);
-    const dest = req.file.destination.split("/");
-    const path = dest[1] + "/" + dest[2] + "/" + req.file.filename;
+    // console.log(req.file);
+   const path = "/images/upload/" + req.file.filename
+   console.log(path)
+    // const dest = req.file.destination.split("/");
+    // const path = dest[1] + "/" + dest[2] + "/" + req.file.filename;
     const newPlace = new Place({
         name: req.body.name,
         description: req.body.desc,

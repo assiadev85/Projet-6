@@ -1,21 +1,21 @@
 <%-include('./header')%>
 <main>
-<title><%=title%></title>
-<h2>List of places</h2>
+  <title><%=title%></title>
+  <h2>List of places</h2>
 
-<% for(var i=0 ;i< Place.length; i++){%>
-    <P><strong>Name:</strong><%=Place[i].name%></P> 
-  <P><strong>Description:</strong><%=Place[i].description%></P>
- <P><strong>Date:</strong> <%=Place[i].dates%></P>
-  <a href="<%=`/details/${Place[i]._id}`%>"><img src=" <%=Place[i].pathImage%>"/></a>
+  <% for(var i=0 ;i< Place.length; i++){%>
+  <a href="<%=`/details/${Place[i]._id}`%>"><img src=" <%=Place[i].pathImage%>" /></a>
 
+  <P class="P-admin"><strong>Name:</strong><%=Place[i].name%></P>
+  <P class="P-admin" ><strong>Description:</strong><%=Place[i].description%></P>
+  <P class="P-admin" ><strong>Date:</strong> <%=Place[i].dates%></P>
   <form action="/admin/valid" method="POST">
-  <input type="hidden" value="<%=Place[i]._id %>" name="id"/>
-  <input type="submit" value="Validate" class="btn"/>
+    <input type="hidden" value="<%=Place[i]._id %>" name="id" />
+    <input type="submit" value="Validate" class="btn" />
 
-</form>
+  </form>
 
-<%}%>
+  <%}%>
 </main>
 
 <%-include('./footer')%>
